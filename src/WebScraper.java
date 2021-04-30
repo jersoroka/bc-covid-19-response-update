@@ -14,14 +14,15 @@ public class WebScraper {
 
             Elements body = document.select("div.view-content");
 
-            System.out.println("Size: " + body.select("div div").size());
             for (Element element: body.select("div div")) {
-                final String date = element.select("span").text();
-                final String title = element.select("a").text();
-                final String link = element.select("a").attr("href");
+                if (element.select("a").text().contains("COVID-19")) {
+                    final String date = element.select("span").text();
+                    final String title = element.select("a").text();
+                    final String link = element.select("a").attr("href");
 
-                System.out.println(date + ": " + title);
-                System.out.println(link);
+                    System.out.println(date + ": " + title);
+                    System.out.println(link);
+                }
             }
 
         } catch (Exception e) {
