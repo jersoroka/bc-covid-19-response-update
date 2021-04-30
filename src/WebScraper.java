@@ -3,11 +3,16 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
 public class WebScraper {
     private static List<Update> updates = new ArrayList<>();
+    private static final String DATE = LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
 
     public static void main(String[] args) {
 
@@ -19,7 +24,10 @@ public class WebScraper {
             Elements body = document.select("div.view-content");
 
             for (Element element: body.select("div div")) {
-                if (element.select("a").text().contains("COVID-19")) {
+
+                // only scrapes alerts that are for COVID-19 and were posted on the current date
+                if (element.select("a").text().contains("COVID-19") &&
+                        element.select("span").text().equals(DATE)) {
                     final String date = element.select("span").text();
                     final String title = element.select("a").text();
                     final String link = element.select("a").attr("href");
