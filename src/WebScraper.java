@@ -28,6 +28,10 @@ public class WebScraper {
                 }
             }
 
+            for (Update update: updates) {
+                System.out.println(update);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

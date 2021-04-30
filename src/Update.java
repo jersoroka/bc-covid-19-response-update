@@ -8,4 +8,9 @@ public class Update {
         this.date = date;
         this.url = url;
     }
+
+    @Override
+    public String toString() {
+        return date + ": " + title + "\n" + url;
+    }
 }
