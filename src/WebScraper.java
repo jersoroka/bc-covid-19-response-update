@@ -3,7 +3,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WebScraper {
+    private static List<Update> updates = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -20,8 +24,7 @@ public class WebScraper {
                     final String title = element.select("a").text();
                     final String link = element.select("a").attr("href");
 
-                    System.out.println(date + ": " + title);
-                    System.out.println(link);
+                    updates.add(new Update(title, date, link));
                 }
             }
 
@@ -33,5 +36,4 @@ public class WebScraper {
     // TODO: send text message when a new update is made
     // TODO: have program run everyday at a specific time
     // TODO: parse for updates that happened on the same day
-    // TODO: make an update class
 }
