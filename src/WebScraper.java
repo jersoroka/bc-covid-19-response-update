@@ -4,7 +4,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
@@ -36,6 +35,7 @@ public class WebScraper {
                 }
             }
 
+            // prints out to system the updates that meet the criteria for the above conditional
             for (Update update: updates) {
                 System.out.println(update);
             }
@@ -47,5 +47,4 @@ public class WebScraper {
 
     // TODO: send text message when a new update is made
     // TODO: have program run everyday at a specific time
-    // TODO: parse for updates that happened on the same day
 }
