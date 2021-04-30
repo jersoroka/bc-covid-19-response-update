@@ -29,4 +29,9 @@ public class WebScraper {
             e.printStackTrace();
         }
     }
+
+    // TODO: send text message when a new update is made
+    // TODO: have program run everyday at a specific time
+    // TODO: parse for updates that happened on the same day
+    // TODO: make an update class
 }
