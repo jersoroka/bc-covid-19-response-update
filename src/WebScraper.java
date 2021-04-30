@@ -1,4 +1,5 @@
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -15,11 +16,27 @@ public class WebScraper {
 
             Elements body = document.select("div.view-content");
             // System.out.println(body);
-            System.out.println("Size: " + body.select("a").size());
+            // System.out.println("Size: " + body.select("a").size());
 
-            for (Element element: body.select("a")) {
-                System.out.println(element.text());
+            System.out.println("Size: " + body.select("div div").size());
+            for (Element element: body.select("div div")) {
+                final String date = element.select("span").text();
+                final String title = element.select("a").text();
+                final String link = element.select("a").attr("href");
+
+                System.out.println(date + ": " + title);
+                System.out.println(link);
             }
+
+//            for (Element element: body.select("span")) {
+//                System.out.println(element.text());
+//            }
+
+//            for (Element element: body.select("a")) {
+//                if (element.text().contains("COVID-19")) {
+//                    System.out.println(element.text());
+//                }
+//            }
 
 
 //            for (Element row : document.select("h4.field-content tr")) {
