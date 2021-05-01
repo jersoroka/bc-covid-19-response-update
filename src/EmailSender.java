@@ -10,10 +10,12 @@ public class EmailSender {
 
     // EFFECTS: sends email containing the update in the message body
     public static void sendEmail(String update) {
+        // TODO: change user, password, and to
         final String user = "xxx@gmail.com";
         final String password = "xxx";
 
         String to = "xxx@msg.telus.com";
+
 
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
@@ -39,8 +41,6 @@ public class EmailSender {
             Transport.send(message);
 
             System.out.println("Message sent to " + to);
-        } catch (AddressException e) {
-            e.printStackTrace();
         } catch (MessagingException e) {
             e.printStackTrace();
         }
@@ -50,6 +50,8 @@ public class EmailSender {
     public static void checkUpdate(String update) {
         if (!update.equals("")) {
             sendEmail(update);
+        } else {
+            System.out.println("No updates for today.");
         }
     }
 

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="bc-covid-19-response-update:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/bc_covid_19_response_update_jar</output-path>
+    <root id="archive" name="bc-covid-19-response-update.jar">
+      <element id="module-output" name="bc-covid-19-response-update" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/mailactivation/activation.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jsoup-1.13.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/javax.mail.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

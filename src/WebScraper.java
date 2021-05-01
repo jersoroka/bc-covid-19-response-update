@@ -8,13 +8,12 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TimerTask;
 
-public class WebScraper extends TimerTask {
+public class WebScraper {
     private static List<Update> updates = new ArrayList<>();
     private static final String DATE = LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
 
-    public void scrape() {
+    public static void scrape() {
         final String url = "https://www.healthlinkbc.ca/public-health-alerts/most-recent-alerts";
 
         try {
@@ -25,8 +24,9 @@ public class WebScraper extends TimerTask {
             for (Element element: body.select("div div")) {
 
                 // only scrapes alerts that are for COVID-19 and were posted on the current date
-                if (element.select("a").text().contains("COVID-19") &&
-                        element.select("span").text().equals(DATE)) {
+//                if (element.select("a").text().contains("COVID-19") &&
+//                        element.select("span").text().equals(DATE))
+                if (element.select("a").text().contains("COVID-19")) {
                     final String date = element.select("span").text();
                     final String title = element.select("a").text();
                     final String link = element.select("a").attr("href");
@@ -46,11 +46,5 @@ public class WebScraper extends TimerTask {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void run() {
-        scrape();
-        System.out.println("Task completed.");
     }
 }

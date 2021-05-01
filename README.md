@@ -11,7 +11,7 @@
 - I want this program to run automatically, every day at a specific time
 
 # Technologies
-- Java 11
+- Java 8
 - Emails are sent using JavaMail API 1.6.2 and JavaBeans Activation Framework 1.3.0
 - Web scraping using JSoup 1.13.1
 
