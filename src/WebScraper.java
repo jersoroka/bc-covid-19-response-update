@@ -9,6 +9,7 @@ import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
+// represents a class that scrapes the HealthLinkBC "Most Recent Alerts" page for updates
 public class WebScraper {
     private static List<Update> updates = new ArrayList<>();
     private static final String DATE = LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
@@ -48,6 +49,5 @@ public class WebScraper {
         }
     }
 
-    // TODO: send text message when a new update is made
     // TODO: have program run everyday at a specific time
 }

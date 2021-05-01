@@ -1,3 +1,4 @@
+// represents a class containing information about an update
 public class Update {
     private String title;
     private String date;
