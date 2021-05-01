@@ -46,4 +46,11 @@ public class EmailSender {
         }
     }
 
+    // EFFECTS: if update is not an empty string, sends an email
+    public static void checkUpdate(String update) {
+        if (!update.equals("")) {
+            sendEmail(update);
+        }
+    }
+
 }

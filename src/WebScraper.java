@@ -42,7 +42,7 @@ public class WebScraper {
                 updateText += (update + "\n");
             }
 
-            EmailSender.sendEmail(updateText);
+            EmailSender.checkUpdate(updateText);
 
         } catch (Exception e) {
             e.printStackTrace();
