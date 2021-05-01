@@ -36,9 +36,12 @@ public class WebScraper {
             }
 
             // prints out to system the updates that meet the criteria for the above conditional
+            String updateText = "";
             for (Update update: updates) {
-                System.out.println(update);
+                updateText += (update + "\n");
             }
+
+            EmailSender.sendEmail(updateText);
 
         } catch (Exception e) {
             e.printStackTrace();
