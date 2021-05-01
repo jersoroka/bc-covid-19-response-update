@@ -8,14 +8,13 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimerTask;
 
-// represents a class that scrapes the HealthLinkBC "Most Recent Alerts" page for updates
-public class WebScraper {
+public class WebScraper extends TimerTask {
     private static List<Update> updates = new ArrayList<>();
     private static final String DATE = LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
 
-    public static void main(String[] args) {
-
+    public void scrape() {
         final String url = "https://www.healthlinkbc.ca/public-health-alerts/most-recent-alerts";
 
         try {
@@ -37,17 +36,21 @@ public class WebScraper {
             }
 
             // prints out to system the updates that meet the criteria for the above conditional
-            String updateText = "";
+            StringBuilder updateText = new StringBuilder();
             for (Update update: updates) {
-                updateText += (update + "\n");
+                updateText.append(update).append("\n");
             }
 
-            EmailSender.checkUpdate(updateText);
+            EmailSender.checkUpdate(updateText.toString());
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    // TODO: have program run everyday at a specific time
+    @Override
+    public void run() {
+        scrape();
+        System.out.println("Task completed.");
+    }
 }
