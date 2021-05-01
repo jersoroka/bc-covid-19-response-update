@@ -23,6 +23,7 @@ public class WebScraper {
 
             for (Element element: body.select("div div")) {
 
+                // TODO: change if condition back to filter for the date after testing
                 // only scrapes alerts that are for COVID-19 and were posted on the current date
 //                if (element.select("a").text().contains("COVID-19") &&
 //                        element.select("span").text().equals(DATE))
