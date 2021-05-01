@@ -9,6 +9,7 @@ import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
+// represents a class that scrapes the HealthLinkBC "Most Recent Alerts" page for updates
 public class WebScraper {
     private static List<Update> updates = new ArrayList<>();
     private static final String DATE = LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
@@ -23,11 +24,9 @@ public class WebScraper {
 
             for (Element element: body.select("div div")) {
 
-                // TODO: change if condition back to filter for the date after testing
                 // only scrapes alerts that are for COVID-19 and were posted on the current date
-//                if (element.select("a").text().contains("COVID-19") &&
-//                        element.select("span").text().equals(DATE))
-                if (element.select("a").text().contains("COVID-19")) {
+                if (element.select("a").text().contains("COVID-19") &&
+                        element.select("span").text().equals(DATE)) {
                     final String date = element.select("span").text();
                     final String title = element.select("a").text();
                     final String link = element.select("a").attr("href");

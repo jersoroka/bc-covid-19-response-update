@@ -16,11 +16,17 @@
 - Web scraping using JSoup 1.13.1
 
 # How-to
-- The program is written to send emails using a gmail account:
+- The program is written to send emails using a gmail account (marked by TODO in the program):
     1. Enter the sender email address and password in the EmailSender class.
     2. The email can only be sent if on the gmail account: (1) two-step verification is turned off and (2) less secure app access is on.
-- The receiver can be an email or you can use an SMS gateway (which I'm using) that links to your phone number. For example, I'm using Koodo and that SMS gateway would be "phonenumber@msg.telus.com".
-- Specify the time when you want the application to run. I set it to 3 o'clock since most updates happen in the early afternoon.
+- The receiver can be a regular email, or an SMS gateway (which I'm using) that links to your phone number. For example, I'm using Koodo and that SMS gateway would be "phonenumber@msg.telus.com".
+
+- The program uses the Windows Task Scheduler so that the program is run automatically every day at a certain time:
+    1. After entering the email information, export a .jar file
+    2. Make a batch file that contains the following instructions:
+      - cd "file location of java.exe"
+      - java -jar "path link for the .jar file"
+    3. Add a new task using the Windows Task Scheduler, name it, and schedule it to repeat as frequently as you want using the trigger tab.  
 
 # Credits
 - code for sending the email is based on: https://www.javatpoint.com/example-of-sending-email-using-java-mail-api-through-gmail-server
