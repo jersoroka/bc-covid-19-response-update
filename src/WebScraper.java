@@ -35,7 +35,7 @@ public class WebScraper {
                 }
             }
 
-            // prints out to system the updates that meet the criteria for the above conditional
+            // creates a string containing information from each update
             StringBuilder updateText = new StringBuilder();
             for (Update update: updates) {
                 updateText.append(update).append("\n");
