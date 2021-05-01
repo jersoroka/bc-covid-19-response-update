@@ -1,5 +1,8 @@
 # BC COVID-19 Response Updater
 
+# Introduction
+This program checks the BC Health Links website for new announcements about COVID-19. If there is a new announcement for the current day, the user is notified about the headline and is given a link to the full announcment by text message.
+
 # Motivation
 - I realized that if it weren't for watching the news with my family, I would not be receiving any direct updates from the government about COVID-19. I made this program so that I could be more informed about public health orders.
 - I want to learn how to do web scraping and automating tasks.
