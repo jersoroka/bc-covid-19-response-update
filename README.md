@@ -19,6 +19,9 @@
 - The program is written to send emails using a gmail account:
     1. Enter the sender email address and password in the EmailSender class.
     2. The email can only be sent if on the gmail account: (1) two-step verification is turned off and (2) less secure app access is on.
-- The receiver can be an email or you can use an SMS gateway (which I'm using) that links to your phone number. For example, I'm using Koodo and that SMS gateway would "phonenumber@msg.telus.com".
+- The receiver can be an email or you can use an SMS gateway (which I'm using) that links to your phone number. For example, I'm using Koodo and that SMS gateway would be "phonenumber@msg.telus.com".
 - Specify the time when you want the application to run. I set it to 3 o'clock since most updates happen in the early afternoon.
+
+# Credits
+- code for sending the email is based on: https://www.javatpoint.com/example-of-sending-email-using-java-mail-api-through-gmail-server
 
